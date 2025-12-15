@@ -1,0 +1,15 @@
+Package: chargerdcrk4
+Title: Simulation of a DC-DC Charger Using RK4
+Version: 0.1.0
+Authors@R: person("Noubissi Kemmegne", "Yvan Cabrel",
+                  email = "yvancabrel04@gmail.com",
+                  role = c("aut", "cre"),
+                  comment = "a.k.a. Yvan Cabrel")
+Description: This package simulates, analyses, visualises, and model a buck DC-DC converter using the fourth-order Runge-Kutta method (RK4).
+License: file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    ggplot2,
+    patchwork
+RoxygenNote: 7.3.3
