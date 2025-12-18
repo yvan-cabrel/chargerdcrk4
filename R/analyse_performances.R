@@ -3,7 +3,7 @@
 #' @importFrom stats sd
 #'
 #' @param V_out_target desired output voltage
-#' @param results table resulting from the function  rk4buckconverter
+#' @param results table resulting from the function  buck_converter_rk4
 #'
 #' @returns the entire analysis
 #' @export
@@ -15,8 +15,8 @@
 #'    V_out = runif(100, min = 0, max = 12)
 #' )
 #'   V_out_target <- 5
-#' analyseperformances(V_out_target, results)
-analyseperformances <- function(V_out_target, results) {
+#' analyse_performances(V_out_target, results)
+analyse_performances <- function(V_out_target, results) {
 
   times <- results$times
   V_out <- results$V_out
@@ -111,7 +111,7 @@ analyseperformances <- function(V_out_target, results) {
   if (sufficiently_stable && good_time_stab) {
     cat("\n EXCELLENT : The system does not meet all the criteria !\n")
   } else if (sufficiently_stable) {
-    cat("\n GOOD : The system is stable but the stabilization time is improveable \n")
+    cat("\n GOOD : The system is stable but the stabilization time is improvable \n")
   } else {
     cat("\n INSUFFICIENT : Adjust the components L, C or the duty cycle \n")
   }

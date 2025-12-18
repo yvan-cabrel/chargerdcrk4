@@ -8,15 +8,15 @@
 #' @returns duty cycle : The potion's time during the input voltage is active for a period
 #' @export
 #'
-#' @examples duty = dutycycle(12,5)
-dutycycle <- function(V_in, V_out) {
+#' @examples duty = duty_cycle(12,5)
+duty_cycle <- function(V_in, V_out) {
 
   if (V_out >= V_in) {
     stop("Error : Vout must be less than Vin for a Buck converter")
   }
 
-  d <- V_out / V_in
-  d <- min(d, 0.95)
+  duty <- V_out / V_in
+  duty <- min(duty, 0.95)
 
-  return(d)
+  return(duty)
 }

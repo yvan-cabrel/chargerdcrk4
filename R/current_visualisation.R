@@ -16,8 +16,8 @@
 #'    i_L = runif(100, min = 0, max = 5),
 #'    V_out = runif(100, min = 0, max = 12)
 #' )
-#' currentvisualisation(results)
-currentvisualisation <- function(results) {
+#' current_visualisation(results)
+current_visualisation <- function(results) {
 
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
     stop("Le package 'ggplot2' est requis pour cette fonction.")

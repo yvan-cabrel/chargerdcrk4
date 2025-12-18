@@ -15,10 +15,10 @@
 #' @export
 #'
 #' @examples
-#' table2 <- rungekutta4(c(5,0,10),c(0,0.4,0),c(0,0),0.04,30,2)
+#' table2 <- runge_kutta4(c(5,0,10),c(0,0.4,0),c(0,0),0.04,30,2)
 #'
-#' table1 <- rungekutta4(c(5,-10),c(0,0,0),c(0,6),0.1,5,1)
-rungekutta4 <- function (X,A,I,h,t,order){
+#' table1 <- runge_kutta4(c(5,-10),c(0,0,0),c(0,6),0.1,5,1)
+runge_kutta4 <- function (X,A,I,h,t,order){
   F0 <- A[1] ; w <- A[2] ; p <- A[3]
 
   if (order==1){

@@ -18,8 +18,8 @@
 #' @export
 #'
 #' @examples
-#' fullsimulation ( 12.0, 5.0, 47e-6, 100e-6, 0.1, 2.5, 2e-2, 0, 0 )
-fullsimulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i_L_0, v_C_0 ) {
+#' full_simulation ( 12.0, 5.0, 47e-6, 100e-6, 0.1, 2.5, 2e-2, 0, 0 )
+full_simulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i_L_0, v_C_0 ) {
   cat("========================================\n")
   cat("SIMULATION BUCK CONVERTER with RK4\n")
   cat("========================================\n\n")
@@ -32,11 +32,11 @@ fullsimulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i_
   cat(sprintf("  R_L = %.2f ohm\n", R_L))
   cat(sprintf("  R_charge = %.2f ohm (%.1f A)\n\n", R_charge, V_out_target/R_charge))
 
-  d <- dutycycle(V_in, V_out_target)
+  d <- duty_cycle(V_in, V_out_target)
   cat(sprintf("Duty cycle : %.3f (%.1f%%)\n\n", d, d * 100))
 
 
-  dt_max <- timespacecharger(R_charge, R_L, L, C)
+  dt_max <- step_size(R_charge, R_L, L, C)
   dt_max
   dt <- dt_max
 
@@ -44,7 +44,7 @@ fullsimulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i_
 
   cat("simulation in progress ...\n")
 
-  results <- rk4buckconverter(
+  results <- buck_converter_rk4(
     V_in = V_in,
     d = d,
     R_charge = R_charge,
@@ -61,14 +61,14 @@ fullsimulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i_
 
   cat("Generation of graphiques...\n")
 
-  p1 <- voltagevisualisation(results)
-  p2 <- currentvisualisation(results)
+  p1 <- voltage_visualisation(results)
+  p2 <- current_visualisation(results)
 
   if (!requireNamespace("patchwork", quietly = TRUE)) {
     stop("Le package 'patchwork' est requis pour cette fonction.")
   }
 
-  analyseperformances(V_out_target, results)
+  analyse_performances(V_out_target, results)
 
   return(patchwork::wrap_plots(p1, p2, ncol = 1))
 }

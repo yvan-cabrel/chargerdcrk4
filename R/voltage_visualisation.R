@@ -5,7 +5,7 @@
 #' @importFrom utils install.packages
 #' @importFrom ggplot2 aes geom_line element_text
 #'
-#' @param results  table resulting from the function  rk4buckconverter
+#' @param results  table resulting from the function  buck_converter_rk4
 #'
 #' @returns Voltage visualisation
 #' @export
@@ -16,8 +16,8 @@
 #'    i_L = runif(100, min = 0, max = 5),
 #'    V_out = runif(100, min = 0, max = 12)
 #' )
-#' voltagevisualisation(results)
-voltagevisualisation <- function(results) {
+#' voltage_visualisation(results)
+voltage_visualisation <- function(results) {
 
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
     stop("Le package 'ggplot2' est requis pour cette fonction.")

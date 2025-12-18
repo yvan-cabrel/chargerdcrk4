@@ -1,4 +1,4 @@
-#'  Time space of charger by Runge Kutta 4
+#'  Step size of charger by Runge Kutta 4
 #'
 #' retrieves the characteristics of the charger components and calculates the maximum pitch for stability and precision
 #'
@@ -11,8 +11,8 @@
 #' @export
 #'
 #' @examples
-#' dt_max <- timespacecharger(R_charge = 2.5,R_L = 0.1,L = 47e-6,C = 100e-6)
-timespacecharger <- function(R_charge, R_L, L, C) {
+#' dt_max <- step_size(R_charge = 2.5,R_L = 0.1,L = 47e-6,C = 100e-6)
+step_size <- function( L, C, R_L, R_charge) {
 
   if (R_L <= 0){
     print("R_L must be more than 0. Utilisation to R_L = 0.01 by fault")
@@ -29,11 +29,11 @@ timespacecharger <- function(R_charge, R_L, L, C) {
   dt_switch <- period_switch / 10
 
   if (dt_max > dt_switch){
-    cat(sprintf("The time space for stability is %.3e s \n",dt_max))
+    cat(sprintf("The step size for stability is %.3e s \n",dt_max))
     cat(sprintf("for more stability and pecision uses a maximum of %.3e s \n",dt_switch))
     return(dt_switch)
   }else{
-    cat(sprintf("The time space for a minimum stability is %.3f s",dt_max))
+    cat(sprintf("The step size for a minimum stability is %.3f s",dt_max))
     return(dt_max)
   }
 }

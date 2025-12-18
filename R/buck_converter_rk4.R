@@ -17,14 +17,14 @@
 #' @export
 #'
 #' @examples
-#' results <- rk4buckconverter(V_in = 12,
+#' results <- buck_converter_rk4(V_in = 12,
 #'   d = 0.417,R_charge = 2.5,
 #'   R_L = 0.1,L = 47e-6,
 #'   C = 100e-6,
 #'   dt = 1e-5,
 #'   t_final = 0.02
 #' )
-rk4buckconverter <- function(V_in, d, R_charge, R_L, L, C, dt, t_final, i_L_0 = 0, v_C_0 = 0) {
+buck_converter_rk4 <- function(V_in, d, L, C, R_L, R_charge, dt, t_final, i_L_0 = 0, v_C_0 = 0) {
 
   equations_buck <- function(t, y) {
     i_L <- y[1]
