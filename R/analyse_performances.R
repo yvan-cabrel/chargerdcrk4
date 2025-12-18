@@ -33,8 +33,8 @@ analyse_performances <- function(V_out_target, results) {
   ripple_rms <- sd(regime_stable)
 
 
-  V_max_global <- max(V_out[floor(N*3/100):N])
-  V_min_global <- min(V_out[floor(N*3/100):N])
+  V_max_global <- max(V_out[floor(N/100):N])
+  V_min_global <- min(V_out[floor(N/100):N])
 
   overshoot <- V_max_global - V_out_target
   overshoot_percent <- (overshoot / V_out_target) * 100
