@@ -7,7 +7,7 @@
 #' @param X the vector containing the coefficients of the equation X = c(a,b,c) / X =c(b,c)
 #' @param A the vector constituting the second member A = c(F0,w,p)
 #' @param I initial condition vector I = c( t0, y0, y'0 ) / I = c( t0, y0 )
-#' @param h time space : by how much does the time change at each iteration
+#' @param h step size : by how much does the time change at each iteration
 #' @param t the time
 #' @param order the order of the equation 2 or 1
 #'

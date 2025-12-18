@@ -13,7 +13,7 @@ runge_kutta4(X, A, I, h, t, order)
 
 \item{I}{initial condition vector I = c( t0, y0, y'0 ) / I = c( t0, y0 )}
 
-\item{h}{time space : by how much does the time change at each iteration}
+\item{h}{step size : by how much does the time change at each iteration}
 
 \item{t}{the time}
 
