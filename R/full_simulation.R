@@ -27,8 +27,8 @@ full_simulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i
   cat("Circuit parameters :\n")
   cat(sprintf("  V_in = %.1f V\n", V_in))
   cat(sprintf("  V_out target = %.1f V\n", V_out_target))
-  cat(sprintf("  L = %.4e H\n", L * 1e6))
-  cat(sprintf("  C = %.4e F\n", C * 1e6))
+  cat(sprintf("  L = %.3e H\n", L ))
+  cat(sprintf("  C = %.3e F\n", C ))
   cat(sprintf("  R_L = %.2f ohm\n", R_L))
   cat(sprintf("  R_charge = %.2f ohm (%.1f A)\n\n", R_charge, V_out_target/R_charge))
 
