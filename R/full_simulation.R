@@ -32,8 +32,8 @@ full_simulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i
   cat(sprintf("  R_L = %.2f ohm\n", R_L))
   cat(sprintf("  R_charge = %.2f ohm (%.1f A)\n\n", R_charge, V_out_target/R_charge))
 
-  d <- duty_cycle(V_in, V_out_target)
-  cat(sprintf("Duty cycle : %.3f (%.1f%%)\n\n", d, d * 100))
+  duty <- duty_cycle(V_in, V_out_target)
+  cat(sprintf("Duty cycle : %.3f (%.1f%%)\n\n", duty, duty * 100))
 
 
   dt_max <- step_size(R_charge, R_L, L, C)
@@ -46,7 +46,7 @@ full_simulation <- function( V_in, V_out_target, L, C, R_L, R_charge, t_final, i
 
   results <- buck_converter_rk4(
     V_in = V_in,
-    d = d,
+    duty = duty,
     R_charge = R_charge,
     R_L = R_L,
     L = L,

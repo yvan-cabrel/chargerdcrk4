@@ -6,7 +6,7 @@
 \usage{
 buck_converter_rk4(
   V_in,
-  d,
+  duty,
   L,
   C,
   R_L,
@@ -20,7 +20,7 @@ buck_converter_rk4(
 \arguments{
 \item{V_in}{input voltage}
 
-\item{d}{duty cycle}
+\item{duty}{duty cycle}
 
 \item{L}{inductance}
 
@@ -46,7 +46,7 @@ We use Runge Kutta 4 to model the buck converter for simulations
 }
 \examples{
 results <- buck_converter_rk4(V_in = 12,
-  d = 0.417,R_charge = 2.5,
+  duty = 0.417,R_charge = 2.5,
   R_L = 0.1,L = 47e-6,
   C = 100e-6,
   dt = 1e-5,

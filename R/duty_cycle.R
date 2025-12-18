@@ -3,19 +3,19 @@
 #' Evaluate the duty cycle to obtain an output voltage close to the desired voltage
 #'
 #' @param V_in  input voltage
-#' @param V_out output voltage
+#' @param V_out_target output voltage desired
 #'
 #' @returns duty cycle : The potion's time during the input voltage is active for a period
 #' @export
 #'
 #' @examples duty = duty_cycle(12,5)
-duty_cycle <- function(V_in, V_out) {
+duty_cycle <- function(V_in, V_out_target) {
 
-  if (V_out >= V_in) {
+  if (V_out_target >= V_in) {
     stop("Error : Vout must be less than Vin for a Buck converter")
   }
 
-  duty <- V_out / V_in
+  duty <- V_out_target / V_in
   duty <- min(duty, 0.95)
 
   return(duty)

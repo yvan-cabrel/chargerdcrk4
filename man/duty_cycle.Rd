@@ -4,12 +4,12 @@
 \alias{duty_cycle}
 \title{duty cycle}
 \usage{
-duty_cycle(V_in, V_out)
+duty_cycle(V_in, V_out_target)
 }
 \arguments{
 \item{V_in}{input voltage}
 
-\item{V_out}{output voltage}
+\item{V_out_target}{output voltage desired}
 }
 \value{
 duty cycle : The potion's time during the input voltage is active for a period

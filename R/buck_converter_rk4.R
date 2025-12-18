@@ -3,7 +3,7 @@
 #'   We use Runge Kutta 4 to model the buck converter for simulations
 #'
 #' @param V_in input voltage
-#' @param d duty cycle
+#' @param duty duty cycle
 #' @param R_charge charge resistance
 #' @param R_L inductance resistance
 #' @param L inductance
@@ -18,19 +18,19 @@
 #'
 #' @examples
 #' results <- buck_converter_rk4(V_in = 12,
-#'   d = 0.417,R_charge = 2.5,
+#'   duty = 0.417,R_charge = 2.5,
 #'   R_L = 0.1,L = 47e-6,
 #'   C = 100e-6,
 #'   dt = 1e-5,
 #'   t_final = 0.02
 #' )
-buck_converter_rk4 <- function(V_in, d, L, C, R_L, R_charge, dt, t_final, i_L_0 = 0, v_C_0 = 0) {
+buck_converter_rk4 <- function(V_in, duty, L, C, R_L, R_charge, dt, t_final, i_L_0 = 0, v_C_0 = 0) {
 
   equations_buck <- function(t, y) {
     i_L <- y[1]
     v_C <- y[2]
 
-    di_L_dt <- (d * V_in - v_C - R_L * i_L) / L
+    di_L_dt <- (duty * V_in - v_C - R_L * i_L) / L
 
     dv_C_dt <- (i_L - v_C / R_charge) / C
 
